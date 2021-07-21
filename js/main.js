@@ -39,7 +39,7 @@ eraser.addEventListener('click', () => {
 
 changeSize.addEventListener('click', () => {
   let numberOfGrids = prompt('Enter a number between 1 and 64', 16);
-  if (numberOfGrids < 0 || Number.isInteger(numberOfGrids)) {
+  if (numberOfGrids <= 0 || isNaN(numberOfGrids)) {
     alert('Type a number between 1 and 64');
   } else {
     let finalNumberOfGrids = numberOfGrids * numberOfGrids;
@@ -56,6 +56,7 @@ changeSize.addEventListener('click', () => {
     for (let i = 0; i < finalNumberOfGrids; i++) {
       const divGrid = document.createElement('div');
       divGrid.style.border = '1px solid black';
+      divGrid.style.backgroundColor = '#f2f2f2';
       divGrid.className = 'div-grid-two';
       grid.append(divGrid);
     }
