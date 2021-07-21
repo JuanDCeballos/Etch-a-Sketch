@@ -1,5 +1,5 @@
 const grid = document.querySelector('.grid');
-// const changeSize = document.getElementById('changeSize');
+const changeSize = document.getElementById('changeSize');
 const eraser = document.getElementById('eraser');
 const rgbColor = document.getElementById('rgbColor');
 const grayColor = document.getElementById('gray');
