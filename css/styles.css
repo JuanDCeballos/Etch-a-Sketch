@@ -11,8 +11,11 @@ body {
 }
 
 .container {
+  border: 1px solid black;
+}
+
+.grid {
   min-width: 700px;
   min-height: 700px;
-  border: 2px solid gray;
   display: grid;
 }
