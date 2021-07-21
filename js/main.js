@@ -39,7 +39,7 @@ eraser.addEventListener('click', () => {
 
 changeSize.addEventListener('click', () => {
   let numberOfGrids = prompt('Enter a number between 1 and 64', 16);
-  if (numberOfGrids <= 0 || isNaN(numberOfGrids)) {
+  if (numberOfGrids <= 0 || numberOfGrids > 64 || isNaN(numberOfGrids)) {
     alert('Type a number between 1 and 64');
   } else {
     let finalNumberOfGrids = numberOfGrids * numberOfGrids;
