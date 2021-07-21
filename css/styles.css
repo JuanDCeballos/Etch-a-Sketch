@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+  --bg: #f2f2f2;
+  --dark: #111;
+}
+
 body {
-  background-color: #f2f2f2;
+  background-color: var(--bg);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -9,16 +14,74 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
 .main-container {
   text-align: center;
 }
 
 .container {
-  border: 1px solid black;
+  border: 1px solid var(--dark);
 }
 
 .grid {
-  min-width: 700px;
-  min-height: 700px;
+  min-width: 600px;
+  min-height: 600px;
   display: grid;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid var(--dark);
+  text-transform: uppercase;
+  color: var(--dark);
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  background-color: var(--bg);
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 12px);
+  background-color: var(--bg);
+  transition: 0.5s ease-in-out;
+  transform: scaleY(1);
+}
+
+.btn:hover:before {
+  transform: scaleY(0);
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% - 12px);
+  background-color: var(--bg);
+  transition: 0.5s ease-in-out;
+  transform: scaleX(1);
+}
+
+.btn:hover:after {
+  transform: scaleX(0);
+}
+
+.btn span {
+  position: relative;
+  z-index: 3;
 }
