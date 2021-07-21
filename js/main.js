@@ -39,22 +39,26 @@ eraser.addEventListener('click', () => {
 
 changeSize.addEventListener('click', () => {
   let numberOfGrids = prompt('Enter a number between 1 and 64', 16);
-  let finalNumberOfGrids = numberOfGrids * numberOfGrids;
-  let divsToRemove = document.getElementsByClassName('div-grid');
-  while (divsToRemove.length > 0) {
-    let divsRemove = divsToRemove[0];
-    divsRemove.parentNode.removeChild(divsRemove);
+  if (numberOfGrids < 0 || Number.isInteger(numberOfGrids)) {
+    alert('Type a number between 1 and 64');
+  } else {
+    let finalNumberOfGrids = numberOfGrids * numberOfGrids;
+    let divsToRemove = document.getElementsByClassName('div-grid');
+    while (divsToRemove.length > 0) {
+      let divsRemove = divsToRemove[0];
+      divsRemove.parentNode.removeChild(divsRemove);
+    }
+    let divsToRemoveTwo = document.getElementsByClassName('div-grid-two');
+    while (divsToRemoveTwo.length > 0) {
+      let divsRemoveTwo = divsToRemoveTwo[0];
+      divsRemoveTwo.parentNode.removeChild(divsRemoveTwo);
+    }
+    for (let i = 0; i < finalNumberOfGrids; i++) {
+      const divGrid = document.createElement('div');
+      divGrid.style.border = '1px solid black';
+      divGrid.className = 'div-grid-two';
+      grid.append(divGrid);
+    }
+    grid.style.gridTemplateColumns = `repeat(${numberOfGrids}, 1fr)`;
   }
-  let divsToRemoveTwo = document.getElementsByClassName('div-grid-two');
-  while (divsToRemoveTwo.length > 0) {
-    let divsRemoveTwo = divsToRemoveTwo[0];
-    divsRemoveTwo.parentNode.removeChild(divsRemoveTwo);
-  }
-  for (let i = 0; i < finalNumberOfGrids; i++) {
-    const divGrid = document.createElement('div');
-    divGrid.style.border = '1px solid black';
-    divGrid.className = 'div-grid-two';
-    grid.append(divGrid);
-  }
-  grid.style.gridTemplateColumns = `repeat(${numberOfGrids}, 1fr)`;
 });
